@@ -29,25 +29,65 @@ class phones
 	{
 		foreach ($this->phones as $value)
 		{
-			if($value['model'] == $name)
+			if($value[$key] == $name)
 			{
 				return $value;
 			}
 		}
+		return null;
 	}
 
 	public function findByManufacturer($key, $name)
 	{
 		foreach($this->phones as $value)
 		{
-			if($value['manufacturer'] == $name)
+			if($value[$key] == $name)
 			{
 				return $value;
 			}
 		}
-
+		return null;
 	}
 
-	
+	public function sortByManufacturerAsc()
+	{
+		$sortAsc = array();
+		asort($this->phones);
+		foreach($this->phones as $value)
+		{
+			$sortAsc += $value;
+			var_dump($value);
+		}
+	}
+
+	public function update($key,$name)
+	{
+		foreach($this->phones as $value)
+		{
+			if($value[$key] == $name)
+			{
+				$updateArray = [
+					'manufacturer' => 'Lenovo',
+					'model' => 'Kobe Phones',
+					'salary' => 300
+				];
+				return $updateArray;
+			}
+		}
+	}
+
+	public function delete($key,$name)
+	{
+		foreach($this->phones as $value)
+		{
+			if($value[$key] == $name)
+			{
+				unset($value['manufacturer']);
+				unset($value['model']);
+				unset($value['salary']);
+				return $value;
+			}
+		}
+	}
 
 }
