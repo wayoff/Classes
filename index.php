@@ -1,6 +1,5 @@
 <?php
 require_once('collections.php');
-require_once('phones.php');
 
 $phone =[
 	[
@@ -74,4 +73,13 @@ echo '<strong> Delete Some data </strong>';
 var_dump($handheld->delete('manufacturer','Samsung'));
 
 //var_dump($handheld->where('manufacturer','Apple'));
+$persons =  new Persons();
 
+
+?>
+<form action="addpersons.php" method="POST">
+	<input type="text" name="first_name" />
+	<input type="text" name="last_name" />
+	<input type="text" name="middle_name" />
+	<input type="submit" value="Register" />
+</form>

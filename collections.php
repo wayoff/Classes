@@ -1,4 +1,6 @@
 <?php
+require_once('phones.php');
+require_once('persons.php');
 class Collection
 {	
 	protected $items = [];

@@ -56,7 +56,6 @@ class phones
 		foreach($this->phones as $value)
 		{
 			$sortAsc += $value;
-			var_dump($value);
 		}
 	}
 
