@@ -62,7 +62,7 @@ var_dump($handheld->findByModel('model','Lumia 1020'));
 
 echo '<strong> search by Model * note to self first data for </strong>';
 var_dump($handheld->findByManufacturer('manufacturer','Samsung'));
-*/
+
 echo '<strong> Sort Ascending for Handheld </strong> <br>';
 var_dump($handheld->sortByManufacturerAsc());
 

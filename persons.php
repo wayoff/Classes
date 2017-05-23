@@ -31,14 +31,64 @@ class Persons
 		{
 			if($person[$key] == $value)
 			{
-				$updatePerson = $this->persons = [
-					'first_name' => 'Charlotte',
-					'last_name' => 'fheir'
-				];
-				return $updatePerson;
+				$person['first_name'] = 'Charlotte';
+				$person['last_name'] = 'Fheir';
+				
+				return $person;
 			}
 		}
 		return null;
 	}
+
+	public function delete($key,$value)
+	{
+
+		foreach($this->persons as $person)
+		{
+
+			if($person[$key] == $value)
+			{
+
+				$deleted = array_splice($person, 0,0);
+				return $person;
+			}
+
+		}
+		return null;
+	}
+
+	public function create($creation)
+	{
+		$add = array_push($this->persons,$creation);
+		return $this->persons;
+	}
+
+	public function sortAscending($key)
+	{
+		$sortAsc = [];
+
+		if($key == 'first_name')
+		{
+
+			sort($this->persons);
+			foreach($this->persons as $sort)
+			{	
+				return $this->persons;
+
+			}
+			return null;
+
+		}
+
+		krsort($this->persons);
+		foreach($this->persons as $rsort)
+		{
+			return $this->persons;
+		}
+
+		
+		
+	}
+
 
 }
