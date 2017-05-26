@@ -1,56 +1,40 @@
 <?php
 require_once('collections.php');
+require_once('sample.php');
+$person = new Persons($people);
+var_dump($person->all());
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fictional Characters</title>
+</head>
+<body>
 
-$persons = [
-	[
-		"first_name" => "Seth",
-		"last_name" => "Rollins"
-	],
-	[
-		"first_name" => "Becky",
-		"last_name" => "Lynch"
-	],
-	[
-		"first_name" => "Bork",
-		"last_name" => "Lesnar"
-	],
-	[
-		"first_name" => "Dave",
-		"last_name" => "Bautista"
-	]
-];
+<table border="1px" cellpadding="10" cellspacing="5">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Country</th>
+			<th>Role</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php foreach($people as $person): ?>
+		<tr>
+			<td><?= $person['last_name'].', '.$person['first_name']; ?></td>
+			<td><?= $person['country'] ?></td>
+			<td><?= $person['alias']?></td>
+			<td>
+				<a href="register.php">Add</a>
+				<a href="update.php?id=<?= $person['id']; ?>">Update</a>
+			</td>
+		</tr>
+	<?php endforeach ?>
+	</tbody>
+</table>
 
-$people = new persons($persons);
-
-foreach($people->all() as $peoples){
-	echo $peoples['last_name'].', '.$peoples['first_name'].'<br><br>';
-}
-
-$person = $people->where('first_name','Seth');
-echo "His name is ". $person['last_name'].', '.$person['first_name'].'<br><br>';
-
-echo "I update Becky Lynch To <br><br>";
-$updatePerson = $people->update('first_name','Becky');
-echo "Say Hello to ".$updatePerson['last_name'].', '.$updatePerson['first_name'].'<br><br>';
-
-$deletePerson = $people->delete('first_name','Dave');
-echo "Guess who's Out ".$deletePerson['last_name'].', '.$deletePerson['first_name'].'<br><br>'; 
-
-$addPerson = $people->create(array('first_name' => 'Sasha', 'last_name' => 'Banks'));
-foreach($addPerson as $add)
-{
-	echo $add['last_name'].', '.$add['first_name'].'<br><br>';
-}
-echo "Sasha Banks Added<br><br>";
-
-$sortAscending = $people->sortAscending('first_name');
-
-echo "Sorted Ascending by First Name Nevermind the Last Name dep <br><br>";
-foreach($sortAscending as $sort)
-{
-	echo $sort['last_name'].', '.$sort['first_name'].'<br><br>';
-}
-
-
-
-
+</body>
+</html>
+<?php

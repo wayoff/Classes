@@ -16,7 +16,7 @@ $phone =[
 		'manufacturer' => 'Apple',
 		'model' => 'Iphone 8',
 		'salary' => 100
-	],
+	]
 ];
 
 $items = [
@@ -31,7 +31,7 @@ $items = [
 	[
 		'name' => 'silva',
 		'age' => 10
-	],
+	]
 ];
 
 $equipments = [
@@ -46,12 +46,12 @@ $equipments = [
 	[
 		'name' => 'pako',
 		'age' => 10
-	],
+	]
 ];
 
 
 
-$handheld = new Phones($phone);
+//$handheld = new Phones($phone);
 // var_dump($handheld->Sort($phone));
 /*
 echo '<strong> Average of All Salary </strong>';
@@ -83,3 +83,4 @@ $persons =  new Persons();
 	<input type="text" name="middle_name" />
 	<input type="submit" value="Register" />
 </form>
+*/

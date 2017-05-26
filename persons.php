@@ -34,7 +34,7 @@ class Persons
 				$person['first_name'] = 'Charlotte';
 				$person['last_name'] = 'Fheir';
 				
-				return $person;
+				return $this->persons;
 			}
 		}
 		return null;
@@ -50,7 +50,7 @@ class Persons
 			{
 
 				$deleted = array_splice($person, 0,0);
-				return $person;
+				return $this->persons;
 			}
 
 		}
