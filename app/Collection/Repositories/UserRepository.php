@@ -29,21 +29,13 @@ class UserRepository
 
 	public function getLastId()
 	{
-
-		$lastId;
-
-		if(!empty($this->persons))
-		{
-
-			foreach($this->persons as $person)
-			{
-				$lastId = $person['id'];
-			}
-			return $lastId;
-			
+		
+		if(!empty($this->persons)) {
+			return end($this->persons)['id']
 		}
-		$lastId = 0;
-		return $lastId;
+		
+		return false // or 0 if you want that
+		
 	}
 
 	public function update($key,$value)
